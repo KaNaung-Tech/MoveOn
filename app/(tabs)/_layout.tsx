@@ -1,34 +1,70 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+} from "@expo/vector-icons";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+        tabBarStyle: {
+          width: 288,
+          bottom: 30,
+          height: 56,
+          borderRadius: 30,
+          alignSelf: "center",
+          backgroundColor: "#212330",
+        },
+        tabBarItemStyle: {
+          height: 45,
+          borderRadius: 30,
+          paddingHorizontal: 20,
+          marginTop: 5,
+          marginHorizontal: 5,
+        },
+        tabBarLabelPosition: "beside-icon",
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: "bold",
+        },
+        tabBarActiveBackgroundColor: "#363636",
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "black",
+        tabBarShowLabel: false,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <Octicons name="home" size={25} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="journaling"
         options={{
-          title: 'Explore',
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <MaterialIcons name="list-alt" size={30} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="activity"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialCommunityIcons
+              name="qrcode-plus"
+              color={color}
+              size={26}
+            />
           ),
         }}
       />
