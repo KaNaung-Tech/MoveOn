@@ -6,17 +6,22 @@ import {
   MaterialIcons,
   Octicons,
 } from "@expo/vector-icons";
+import { Dimensions } from "react-native";
+
+const WIDTH = Dimensions.get("screen").width;
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        headerShown: false,
         tabBarStyle: {
-          width: 288,
-          bottom: 30,
+          width: WIDTH / 1.2,
+          bottom: 27,
+          position: "absolute",
           height: 56,
+          left: 30,
           borderRadius: 30,
-          alignSelf: "center",
           backgroundColor: "#212330",
         },
         tabBarItemStyle: {
@@ -34,12 +39,13 @@ export default function TabLayout() {
         tabBarActiveBackgroundColor: "#363636",
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "black",
-        tabBarShowLabel: false,
+        tabBarShowLabel: true,
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
+          title: "Home",
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <Octicons name="home" size={25} color={color} />
@@ -49,6 +55,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="journaling"
         options={{
+          title: "Journaling",
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <MaterialIcons name="list-alt" size={30} color={color} />
@@ -58,6 +65,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="activity"
         options={{
+          title: "Activity",
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <MaterialCommunityIcons
