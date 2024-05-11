@@ -30,7 +30,7 @@ const DetailScreenContainer = ({ title, children }: Props) => {
         </TouchableOpacity>
 
         <Text style={{ fontSize: 20, fontWeight: "600", color: "white" }}>
-          {title}
+          {title ? title : ""}
         </Text>
         <Text></Text>
       </View>

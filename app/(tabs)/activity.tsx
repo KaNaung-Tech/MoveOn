@@ -1,11 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import WavehandSvg from "@/components/svgs/Wavehand";
+import CustomHeader from "@/components/CustomHeader";
 
 const Activity = () => {
   return (
-    <View>
-      <Text>Activity</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <CustomHeader />
+
+      <ScrollView></ScrollView>
+    </SafeAreaView>
   );
 };
 
