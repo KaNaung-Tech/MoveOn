@@ -1,13 +1,7 @@
 import { Tabs } from "expo-router";
 import React from "react";
-
-import {
-  MaterialCommunityIcons,
-  MaterialIcons,
-  Octicons,
-} from "@expo/vector-icons";
-import { Dimensions, useColorScheme } from "react-native";
-
+import { Dimensions } from "react-native";
+import { ActivityIcon, HomeIcon, JournalingIcon } from "@/assets/icons";
 const WIDTH = Dimensions.get("screen").width;
 
 export default function TabLayout() {
@@ -19,18 +13,17 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: {
           width: WIDTH / 1.2,
+          backgroundColor: colorScheme === "dark" ? "#212330" : "#202020",
           bottom: 27,
           position: "absolute",
-          height: 56,
-          left: 30,
+          height: WIDTH / 7,
           borderRadius: 30,
-          backgroundColor: colorScheme === "dark" ? "#212330" : "#202020",
+          marginHorizontal: 30,
         },
         tabBarItemStyle: {
-          height: 45,
           borderRadius: 30,
-          paddingHorizontal: 20,
-          marginTop: 5,
+          padding: 10,
+          marginVertical: 5,
           marginHorizontal: 5,
         },
         tabBarLabelPosition: "beside-icon",
@@ -44,11 +37,11 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+
+          tabBarLabel: "Home",
+          tabBarLabelStyle: { color: "#fff" },
           headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <Octicons name="home" size={25} color="#fff" />
-          ),
+          tabBarIcon: ({ color, focused }) => <HomeIcon />,
         }}
       />
       <Tabs.Screen
@@ -56,9 +49,10 @@ export default function TabLayout() {
         options={{
           title: "Journaling",
           headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <MaterialIcons name="list-alt" size={30} color="#fff" />
-          ),
+
+          tabBarLabel: "Journaling",
+          tabBarLabelStyle: { color: "#fff" },
+          tabBarIcon: ({ color, focused }) => <JournalingIcon />,
         }}
       />
       <Tabs.Screen
@@ -66,9 +60,9 @@ export default function TabLayout() {
         options={{
           title: "Activity",
           headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <MaterialCommunityIcons name="qrcode-plus" color="#fff" size={26} />
-          ),
+          tabBarLabel: "Activity",
+          tabBarLabelStyle: { color: "#fff" },
+          tabBarIcon: ({ color, focused }) => <ActivityIcon />,
         }}
       />
     </Tabs>
