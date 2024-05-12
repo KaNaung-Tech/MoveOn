@@ -3,8 +3,7 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { Octicons } from "@expo/vector-icons";
 
-import LoveIcon from "@/assets/icons/LoveIcon";
-import SaveIcon from "@/assets/icons/SaveIcon";
+import {LoveIcon,SaveIcon} from "@/assets/icons";
 
 import MainScreenContainer from "@/components/MainScreenContainer";
 import { router } from "expo-router";
