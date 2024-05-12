@@ -18,7 +18,10 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    PoppinsBold: require("../assets/fonts/Poppins-Bold.ttf"),
+    PoppinsMedium: require("../assets/fonts/Poppins-Medium.ttf"),
+    PoppinsSemiBold: require("../assets/fonts/Poppins-SemiBold.ttf"),
+
   });
 
   useEffect(() => {
@@ -34,19 +37,28 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
-        <SafeAreaView>
-          <StatusBar />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="(user)" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="journaling/[mode]"
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="journaling/create"
-            options={{ headerShown: false }}
-          />
-        </SafeAreaView>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
+        {/* <Stack.Screen name="index" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="(user)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="journaling/[mode]"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="journaling/create"
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="activities/reading"
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="activities/activities"
+          options={{ headerShown: false }}
+        />
       </Stack>
     </ThemeProvider>
   );

@@ -10,6 +10,7 @@ import MainScreenContainer from "@/components/MainScreenContainer";
 import { ArrowIcon, HomeScreenIcon } from "@/assets/icons";
 import HomeActivities from "@/components/HomeActivities";
 import { ACTIVITIES_DATA } from "@/constants/data";
+
 import MissMeter from "@/components/MissMeter";
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
 
   return (
     <MainScreenContainer>
+
       {!missMeter ? (
         <>
           <View style={styles.iconContainer}>
@@ -34,6 +36,7 @@ const Home = () => {
         style={styles.arrowIconContainer}
       >
         <ArrowIcon />
+
         {!missMeter ? (
           <Text style={styles.missMeterText}>Miss Meter</Text>
         ) : (

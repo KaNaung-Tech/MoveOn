@@ -2,20 +2,22 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { Dimensions } from "react-native";
 import { ActivityIcon, HomeIcon, JournalingIcon } from "@/assets/icons";
-
 const WIDTH = Dimensions.get("screen").width;
 
 export default function TabLayout() {
+  const colorScheme = useColorScheme();
+
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
+          width: WIDTH / 1.2,
+          backgroundColor: colorScheme === "dark" ? "#212330" : "#202020",
           bottom: 27,
           position: "absolute",
           height: WIDTH / 7,
           borderRadius: 30,
-          backgroundColor: "#212330",
           marginHorizontal: 30,
         },
         tabBarItemStyle: {
@@ -25,11 +27,8 @@ export default function TabLayout() {
           marginHorizontal: 5,
         },
         tabBarLabelPosition: "beside-icon",
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "bold",
-        },
-        tabBarActiveBackgroundColor: "#363636",
+        tabBarActiveBackgroundColor:
+          colorScheme === "dark" ? "#2A2D3D" : "#363636",
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "black",
         tabBarShowLabel: true,
@@ -38,6 +37,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+
           tabBarLabel: "Home",
           tabBarLabelStyle: { color: "#fff" },
           headerShown: false,
@@ -47,7 +47,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="journaling"
         options={{
+          title: "Journaling",
           headerShown: false,
+
           tabBarLabel: "Journaling",
           tabBarLabelStyle: { color: "#fff" },
           tabBarIcon: ({ color, focused }) => <JournalingIcon />,
@@ -56,6 +58,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="activity"
         options={{
+          title: "Activity",
           headerShown: false,
           tabBarLabel: "Activity",
           tabBarLabelStyle: { color: "#fff" },
