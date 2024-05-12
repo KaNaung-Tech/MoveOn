@@ -20,8 +20,6 @@ type Props = {
 const MainScreenContainer = ({ children, name, imageUrl }: Props) => {
   const color = useColorScheme();
 
-  console.log({ color });
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.mainContainer}>

@@ -1,13 +1,12 @@
 import React from "react";
 
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { router } from "expo-router";
+
 import { Octicons } from "@expo/vector-icons";
 
-import LoveIcon from "@/assets/icons/LoveIcon";
-import SaveIcon from "@/assets/icons/SaveIcon";
-
+import { LoveIcon, SaveIcon } from "@/assets/icons";
 import MainScreenContainer from "@/components/MainScreenContainer";
-import { router } from "expo-router";
 
 const ACTIVITES = [
   {
@@ -53,17 +52,7 @@ const Activity = () => {
               return (
                 <TouchableOpacity
                   key={id}
-                  style={{
-                    marginBottom: 10,
-                    backgroundColor: "#F8F8F6",
-                    borderRadius: 40,
-                    paddingVertical: 5,
-                    paddingHorizontal: 20,
-                    height: 72,
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
+                  style={styles.activity}
                   onPress={() => {
                     router.push(item.route);
                   }}
@@ -100,5 +89,19 @@ const Activity = () => {
     </MainScreenContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  activity: {
+    marginBottom: 10,
+    backgroundColor: "#F8F8F6",
+    borderRadius: 40,
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    height: 72,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+});
 
 export default Activity;
