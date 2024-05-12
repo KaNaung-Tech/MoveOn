@@ -5,8 +5,8 @@ import { router } from "expo-router";
 
 import { Octicons } from "@expo/vector-icons";
 
-import { LoveIcon, SaveIcon } from "@/assets/icons";
 import MainScreenContainer from "@/components/MainScreenContainer";
+import { LoveIcon, SaveIcon } from "@/assets/icons";
 
 const ACTIVITES = [
   {

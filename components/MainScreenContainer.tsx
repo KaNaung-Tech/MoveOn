@@ -1,3 +1,4 @@
+import React, { ReactNode } from "react";
 import {
   Image,
   SafeAreaView,
@@ -7,7 +8,7 @@ import {
   useColorScheme,
   View,
 } from "react-native";
-import React, { ReactNode } from "react";
+
 import { WaveHandIcon } from "@/assets/icons";
 import { Colors } from "@/constants/Colors";
 
@@ -86,11 +87,13 @@ const styles = StyleSheet.create({
     fontFamily: "PoppinsSemiBold",
     marginRight: 5,
     fontSize: 23,
+    color: "#000",
   },
   question: {
     color: "#000",
     fontWeight: "400",
     fontSize: 13,
+
     marginTop: 5,
   },
   imageContainer: {

@@ -34,6 +34,7 @@ const Home = () => {
         style={styles.arrowIconContainer}
       >
         <ArrowIcon />
+
         {!missMeter ? (
           <Text style={styles.missMeterText}>Miss Meter</Text>
         ) : (

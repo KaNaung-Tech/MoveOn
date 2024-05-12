@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { SafeAreaView, StatusBar, View } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -20,6 +21,7 @@ export default function RootLayout() {
     PoppinsBold: require("../assets/fonts/Poppins-Bold.ttf"),
     PoppinsMedium: require("../assets/fonts/Poppins-Medium.ttf"),
     PoppinsSemiBold: require("../assets/fonts/Poppins-SemiBold.ttf"),
+
   });
 
   useEffect(() => {
