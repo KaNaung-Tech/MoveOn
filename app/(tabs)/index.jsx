@@ -10,15 +10,22 @@ import MainScreenContainer from "@/components/MainScreenContainer";
 import { ArrowIcon, HomeScreenIcon } from "@/assets/icons";
 import HomeActivities from "@/components/HomeActivities";
 import { ACTIVITIES_DATA } from "@/constants/data";
+import MissMeter from "@/components/MissMeter";
 
 const Home = () => {
   const [missMeter, setMissMeter] = useState(false);
 
   return (
     <MainScreenContainer>
-      <View style={styles.iconContainer}>
-        {missMeter ? <HomeScreenIcon /> : ""}
-      </View>
+      {!missMeter ? (
+        <>
+          <View style={styles.iconContainer}>
+            <HomeScreenIcon />
+          </View>
+        </>
+      ) : (
+        <MissMeter />
+      )}
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => {
@@ -27,7 +34,11 @@ const Home = () => {
         style={styles.arrowIconContainer}
       >
         <ArrowIcon />
-        <Text style={styles.missMeterText}>Miss Meter</Text>
+        {!missMeter ? (
+          <Text style={styles.missMeterText}>Miss Meter</Text>
+        ) : (
+          <Text style={styles.missMeterText}>Day counter</Text>
+        )}
       </TouchableOpacity>
       <View style={{ marginTop: 37 }}>
         <Text style={styles.activitiesText}>Activities</Text>
