@@ -7,9 +7,8 @@ import Svg, {
   Use,
   Image,
 } from "react-native-svg";
-
-const WavehandSvg = (props: SvgProps) => (
-  <Svg fill="none" {...props}>
+const WaveHandIcon = (props: SvgProps) => (
+  <Svg width={19} height={19} viewBox="0 0 19 19" fill="none" {...props}>
     <Path fill="url(#a)" d="M0 0h19v19H0z" />
     <Defs>
       <Pattern
@@ -29,4 +28,4 @@ const WavehandSvg = (props: SvgProps) => (
     </Defs>
   </Svg>
 );
-export default WavehandSvg;
+export default WaveHandIcon;
