@@ -6,3 +6,6 @@ export { default as ReadingIcon } from "./ReadingIcon";
 export { default as GalleryIcon } from "./GalleryIcon";
 export { default as LoveIcon } from "./LoveIcon";
 export { default as SaveIcon } from "./SaveIcon";
+export { default as HomeIcon } from "./HomeIcon";
+export { default as JournalingIcon } from "./JournalingIcon";
+export { default as ActivityIcon } from "./ActivityIcon";

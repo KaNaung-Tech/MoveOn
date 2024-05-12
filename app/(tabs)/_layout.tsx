@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 import React from "react";
+<<<<<<< HEAD
 
 import {
   MaterialCommunityIcons,
@@ -7,6 +8,10 @@ import {
   Octicons,
 } from "@expo/vector-icons";
 import { Dimensions, useColorScheme } from "react-native";
+=======
+import { Dimensions } from "react-native";
+import { ActivityIcon, HomeIcon, JournalingIcon } from "@/assets/icons";
+>>>>>>> 54842aea3d98d913722f1e94e805a772d1eb60cf
 
 const WIDTH = Dimensions.get("screen").width;
 
@@ -18,19 +23,21 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          width: WIDTH / 1.2,
           bottom: 27,
           position: "absolute",
-          height: 56,
-          left: 30,
+          height: WIDTH / 7,
           borderRadius: 30,
+<<<<<<< HEAD
           backgroundColor: colorScheme === "dark" ? "#212330" : "#202020",
+=======
+          backgroundColor: "#212330",
+          marginHorizontal: 30,
+>>>>>>> 54842aea3d98d913722f1e94e805a772d1eb60cf
         },
         tabBarItemStyle: {
-          height: 45,
           borderRadius: 30,
-          paddingHorizontal: 20,
-          marginTop: 5,
+          padding: 10,
+          marginVertical: 5,
           marginHorizontal: 5,
         },
         tabBarLabelPosition: "beside-icon",
@@ -44,31 +51,46 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          tabBarLabel: "Home",
+          tabBarLabelStyle: { color: "#fff" },
           headerShown: false,
+<<<<<<< HEAD
           tabBarIcon: ({ color, focused }) => (
             <Octicons name="home" size={25} color="#fff" />
           ),
+=======
+          tabBarIcon: ({ color, focused }) => <HomeIcon />,
+>>>>>>> 54842aea3d98d913722f1e94e805a772d1eb60cf
         }}
       />
       <Tabs.Screen
         name="journaling"
         options={{
-          title: "Journaling",
           headerShown: false,
+<<<<<<< HEAD
           tabBarIcon: ({ color, focused }) => (
             <MaterialIcons name="list-alt" size={30} color="#fff" />
           ),
+=======
+          tabBarLabel: "Journaling",
+          tabBarLabelStyle: { color: "#fff" },
+          tabBarIcon: ({ color, focused }) => <JournalingIcon />,
+>>>>>>> 54842aea3d98d913722f1e94e805a772d1eb60cf
         }}
       />
       <Tabs.Screen
         name="activity"
         options={{
-          title: "Activity",
           headerShown: false,
+<<<<<<< HEAD
           tabBarIcon: ({ color, focused }) => (
             <MaterialCommunityIcons name="qrcode-plus" color="#fff" size={26} />
           ),
+=======
+          tabBarLabel: "Activity",
+          tabBarLabelStyle: { color: "#fff" },
+          tabBarIcon: ({ color, focused }) => <ActivityIcon />,
+>>>>>>> 54842aea3d98d913722f1e94e805a772d1eb60cf
         }}
       />
     </Tabs>
