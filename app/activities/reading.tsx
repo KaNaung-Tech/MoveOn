@@ -1,4 +1,10 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import DetailScreenContainer from "@/components/DetailScreenContainer";
 import { Octicons } from "@expo/vector-icons";
@@ -30,8 +36,9 @@ const reading = () => {
   const [selected, setSelected] = useState("Today");
   const [readmore, setReadmore] = useState(false);
   const [quotes, setQuotes] = useState<Quote[]>([]);
-  const [todayQuotes, setTodayQuotes] = useState<Quote[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const colorSchema = useColorScheme();
 
   const handleNextQuote = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length);
@@ -54,41 +61,47 @@ const reading = () => {
     <DetailScreenContainer image="dd">
       <View style={{ marginTop: 30 }}>
         {/* title */}
-        <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 22 }}>
+        <Text
+          style={{
+            fontFamily: "PoppinsSemiBold",
+            fontSize: 22,
+            color: colorSchema === "dark" ? "#fff" : "#000",
+          }}
+        >
           Quotes
         </Text>
 
         {/* categories */}
-        <View
-          style={{
-            marginTop: 20,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <View style={styles.categoryContainer}>
           {Categories.map((item) => {
             const { id, title } = item;
             return (
               <TouchableOpacity
                 key={id}
                 onPress={() => handleClickCategory(title)}
-                style={{
-                  backgroundColor: selected === title ? "#202020" : "#FEFEFE",
-                  borderRadius: 30,
-                  paddingVertical: 7,
-                  paddingHorizontal: 10,
-                  width: 78,
-                  height: 35,
-                  alignItems: "center",
-                }}
+                style={[
+                  styles.category,
+                  {
+                    backgroundColor:
+                      selected === title
+                        ? "#212330"
+                        : colorSchema === "dark"
+                        ? "#171913"
+                        : "#FEFEFE",
+                  },
+                ]}
               >
                 <Text
                   style={{
                     fontFamily:
                       selected === title ? "PoppinsSemiBold" : "PoppinsMedium",
                     fontSize: 14,
-                    color: selected === title ? "#fff" : "#000",
+                    color:
+                      selected === title
+                        ? "#fff"
+                        : colorSchema === "dark"
+                        ? "#fff"
+                        : "#000",
                   }}
                 >
                   {title}
@@ -99,14 +112,7 @@ const reading = () => {
         </View>
 
         {/* card container */}
-        <View
-          style={{
-            marginTop: 20,
-            position: "relative",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <View style={styles.cardContainer}>
           {quotes.map((item, index) => {
             return (
               <QuoteCard
@@ -123,21 +129,7 @@ const reading = () => {
 
           {/* next button */}
           {!readmore && (
-            <TouchableOpacity
-              style={{
-                width: 50,
-                height: 50,
-                backgroundColor: "#202020",
-                borderRadius: 40,
-                alignItems: "center",
-                position: "absolute",
-                right: -10,
-                top: 100,
-                justifyContent: "center",
-                zIndex: 1,
-              }}
-              onPress={handleNextQuote}
-            >
+            <TouchableOpacity style={styles.nextBtn} onPress={handleNextQuote}>
               <Octicons name="arrow-right" size={30} color="#fff" />
             </TouchableOpacity>
           )}
@@ -146,5 +138,40 @@ const reading = () => {
     </DetailScreenContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  categoryContainer: {
+    marginTop: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  category: {
+    borderRadius: 30,
+    paddingVertical: 7,
+    paddingHorizontal: 10,
+    width: 78,
+    height: 35,
+    alignItems: "center",
+  },
+  cardContainer: {
+    marginTop: 20,
+    position: "relative",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  nextBtn: {
+    width: 50,
+    height: 50,
+    backgroundColor: "#202020",
+    borderRadius: 40,
+    alignItems: "center",
+    position: "absolute",
+    right: -10,
+    top: 100,
+    justifyContent: "center",
+    zIndex: 1,
+  },
+});
 
 export default reading;

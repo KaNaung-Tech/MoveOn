@@ -1,7 +1,10 @@
-import { Tabs } from "expo-router";
 import React from "react";
-import { Dimensions } from "react-native";
+import { Tabs } from "expo-router";
+
+import { Dimensions, useColorScheme } from "react-native";
+
 import { ActivityIcon, HomeIcon, JournalingIcon } from "@/assets/icons";
+
 const WIDTH = Dimensions.get("screen").width;
 
 export default function TabLayout() {
@@ -37,10 +40,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-
           tabBarLabel: "Home",
           tabBarLabelStyle: { color: "#fff" },
           headerShown: false,
+
           tabBarIcon: ({ color, focused }) => <HomeIcon />,
         }}
       />
@@ -60,6 +63,7 @@ export default function TabLayout() {
         options={{
           title: "Activity",
           headerShown: false,
+
           tabBarLabel: "Activity",
           tabBarLabelStyle: { color: "#fff" },
           tabBarIcon: ({ color, focused }) => <ActivityIcon />,

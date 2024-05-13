@@ -24,7 +24,7 @@ const DetailScreenContainer = ({ title, children, image }: Props) => {
     <SafeAreaView
       style={{
         marginTop: 20,
-        backgroundColor: "#FEFEFE",
+        backgroundColor: colorSchema === "dark" ? "#171913" : "#FEFEFE",
         flex: 1,
       }}
     >
