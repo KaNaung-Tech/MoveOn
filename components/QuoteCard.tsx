@@ -8,7 +8,7 @@ import {
 import React, { Dispatch, SetStateAction, useMemo } from "react";
 import { EvilIcons, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { getRandomColorHex } from "@/utlis/generateColors";
+import { getRandomColorHex } from "@/utlis";
 
 interface Props {
   index: number;

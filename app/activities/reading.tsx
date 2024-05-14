@@ -11,7 +11,7 @@ import { Octicons } from "@expo/vector-icons";
 
 import QuoteCard from "@/components/QuoteCard";
 import { Quotes } from "@/constants/quotes";
-import { generateRandomQuotes } from "@/utlis/generateQuotes";
+import { generateRandomQuotes } from "@/utlis";
 
 const Categories = [
   {
