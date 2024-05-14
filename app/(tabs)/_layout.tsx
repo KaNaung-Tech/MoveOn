@@ -17,24 +17,26 @@ export default function TabLayout() {
         tabBarStyle: {
           width: WIDTH / 1.2,
           backgroundColor: colorScheme === "dark" ? "#212330" : "#202020",
-          bottom: 27,
+          bottom: 25,
           position: "absolute",
           height: WIDTH / 7,
           borderRadius: 30,
-          marginHorizontal: 30,
-        },
-        tabBarItemStyle: {
-          borderRadius: 30,
-          padding: 10,
-          marginVertical: 5,
-          marginHorizontal: 5,
+          marginHorizontal: 40,
         },
         tabBarLabelPosition: "beside-icon",
         tabBarActiveBackgroundColor:
           colorScheme === "dark" ? "#2A2D3D" : "#363636",
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "black",
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
+        tabBarItemStyle: {
+          borderRadius: 30,
+          padding: 10,
+          marginVertical: 5,
+          marginHorizontal: 5,
+          height: WIDTH / 9,
+        },
       }}
     >
       <Tabs.Screen
@@ -44,7 +46,9 @@ export default function TabLayout() {
           tabBarLabelStyle: { color: "#fff" },
           headerShown: false,
 
-          tabBarIcon: ({ color, focused }) => <HomeIcon />,
+          tabBarIcon: ({ color, focused }) => (
+            <HomeIcon width={25} height={25} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -55,7 +59,9 @@ export default function TabLayout() {
 
           tabBarLabel: "Journaling",
           tabBarLabelStyle: { color: "#fff" },
-          tabBarIcon: ({ color, focused }) => <JournalingIcon />,
+          tabBarIcon: ({ color, focused }) => (
+            <JournalingIcon width={25} height={25} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -66,7 +72,9 @@ export default function TabLayout() {
 
           tabBarLabel: "Activity",
           tabBarLabelStyle: { color: "#fff" },
-          tabBarIcon: ({ color, focused }) => <ActivityIcon />,
+          tabBarIcon: ({ color, focused }) => (
+            <ActivityIcon width={25} height={25} />
+          ),
         }}
       />
     </Tabs>

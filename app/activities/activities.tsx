@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,7 +11,8 @@ import {
 import { EvilIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import DetailScreenContainer from "@/components/DetailScreenContainer";
-import { getRandomColorHex } from "@/utlis/generateColors";
+import { getRandomActivities, getRandomColorHex } from "@/utlis/";
+import { Activities } from "@/constants/activities";
 
 const Categories = [
   {
@@ -29,22 +30,10 @@ const Categories = [
 ];
 
 const DEMY = [
-  {
-    id: 1,
-    text: "Meditation",
-  },
-  {
-    id: 2,
-    text: "Explore new interests",
-  },
-  {
-    id: 3,
-    text: "Make a food tour",
-  },
-  {
-    id: 4,
-    text: "Buy New Clothes",
-  },
+  "Meditation",
+  "Explore new interests",
+  "Make a food tour",
+  "Buy New Clothes",
 ];
 
 const WIDTH = Dimensions.get("screen").width;
@@ -52,12 +41,21 @@ const WIDTH = Dimensions.get("screen").width;
 const activities = () => {
   const colorSchema = useColorScheme();
   const [selected, setSelected] = useState("All");
+  const [activities, setActivities] = useState<String[]>(DEMY);
 
   const handleClickCategory = (name: string) => {
     setSelected(name);
   };
 
-  const randomColor = useMemo(() => getRandomColorHex(), [selected]);
+  const randomColor = useMemo(
+    () => getRandomColorHex(),
+    [selected, activities]
+  );
+
+  const randomActivities = useCallback(() => {
+    const randomActivities = getRandomActivities(4, Activities);
+    setActivities(randomActivities);
+  }, [selected, activities]);
 
   return (
     <DetailScreenContainer image="dd">
@@ -79,7 +77,10 @@ const activities = () => {
             return (
               <TouchableOpacity
                 key={id}
-                onPress={() => handleClickCategory(name)}
+                onPress={() => {
+                  handleClickCategory(name);
+                  randomActivities();
+                }}
                 style={[
                   styles.categoryTag,
                   {
@@ -122,7 +123,7 @@ const activities = () => {
 
                 transform: [
                   {
-                    rotate: "-7deg",
+                    rotate: "-5deg",
                   },
                 ],
               },
@@ -136,7 +137,7 @@ const activities = () => {
 
                 transform: [
                   {
-                    rotate: "8deg",
+                    rotate: "4deg",
                   },
                 ],
               },
@@ -161,17 +162,16 @@ const activities = () => {
 
             {/* content */}
             <View style={{ gap: 10 }}>
-              {DEMY.map((item) => {
-                const { id, text } = item;
+              {activities.map((item, index) => {
                 return (
                   <View
-                    key={id}
+                    key={`activity-${index}`}
                     style={{
                       flexDirection: "row",
                     }}
                   >
                     <EvilIcons name="check" size={24} color="#fff" />
-                    <Text style={styles.taskText}>{text}</Text>
+                    <Text style={styles.taskText}>{item}</Text>
                   </View>
                 );
               })}
@@ -179,7 +179,10 @@ const activities = () => {
           </View>
 
           {/* reload button */}
-          <TouchableOpacity style={styles.reloadBtn}>
+          <TouchableOpacity
+            style={styles.reloadBtn}
+            onPress={() => randomActivities()}
+          >
             <MaterialCommunityIcons name="restore" size={30} color={"#fff"} />
           </TouchableOpacity>
         </View>
@@ -208,7 +211,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cardContainer: {
-    marginTop: 40,
+    marginTop: 50,
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
@@ -216,7 +219,7 @@ const styles = StyleSheet.create({
   cardShadow: {
     width: WIDTH - 50,
     borderRadius: 20,
-    height: 250,
+    height: 280,
     opacity: 0.5,
     position: "absolute",
     top: 0,
@@ -226,7 +229,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     paddingHorizontal: 40,
-    height: 250,
+    height: 280,
     justifyContent: "space-around",
     alignItems: "flex-start",
   },
