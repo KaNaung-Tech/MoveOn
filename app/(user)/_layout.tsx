@@ -7,11 +7,11 @@ const _layout = () => {
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
 
-      <Stack.Screen name="about" options={{ headerShown: false }} />
+      <Stack.Screen name="about_app" options={{ headerShown: false }} />
       <Stack.Screen name="activities" options={{ headerShown: false }} />
       <Stack.Screen name="notification" options={{ headerShown: false }} />
       <Stack.Screen name="profile" options={{ headerShown: false }} />
-      <Stack.Screen name="setting" options={{ headerShown: false }} />
+      <Stack.Screen name="settings" options={{ headerShown: false }} />
     </Stack>
   );
 };

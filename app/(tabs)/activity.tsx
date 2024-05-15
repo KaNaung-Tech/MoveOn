@@ -1,6 +1,13 @@
 import React from "react";
 
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from "react-native";
 import { router } from "expo-router";
 
 import { Octicons } from "@expo/vector-icons";
@@ -26,6 +33,7 @@ const ACTIVITES = [
 ];
 
 const Activity = () => {
+  const colorSchema = useColorScheme();
   return (
     <MainScreenContainer name="Nyein Min">
       <View
@@ -52,7 +60,13 @@ const Activity = () => {
               return (
                 <TouchableOpacity
                   key={id}
-                  style={styles.activity}
+                  style={[
+                    styles.activity,
+                    {
+                      backgroundColor:
+                        colorSchema !== "dark" ? "#F8F8F6" : "#212330",
+                    },
+                  ]}
                   onPress={() => {
                     router.push(item.route);
                   }}
@@ -63,7 +77,7 @@ const Activity = () => {
                       style={{
                         fontWeight: "500",
                         fontSize: 16,
-                        color: "#0A0909",
+                        color: colorSchema === "dark" ? "#fff" : "#0A0909",
                       }}
                     >
                       {title}
@@ -93,7 +107,6 @@ const Activity = () => {
 const styles = StyleSheet.create({
   activity: {
     marginBottom: 10,
-    backgroundColor: "#F8F8F6",
     borderRadius: 40,
     paddingVertical: 5,
     paddingHorizontal: 20,
