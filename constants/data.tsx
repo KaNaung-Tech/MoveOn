@@ -42,18 +42,6 @@ export const Profile_Data = [
     route: "/(user)/activities",
   },
   {
-    id: 3,
-    title: "Notification",
-    icon: <MaterialCommunityIcons name="bell-ring-outline" size={20} />,
-    route: "/(user)/notification",
-  },
-  {
-    id: 4,
-    title: "Settings",
-    icon: <AntDesign name="setting" size={20} />,
-    route: "/(user)/settings",
-  },
-  {
     id: 5,
     title: "About App",
     icon: <Feather name="alert-circle" size={20} />,
