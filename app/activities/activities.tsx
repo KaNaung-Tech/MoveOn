@@ -161,7 +161,7 @@ const activities = () => {
             </View>
 
             {/* content */}
-            <View style={{ gap: 10 }}>
+            <View style={{ gap: 3 }}>
               {activities.map((item, index) => {
                 return (
                   <View
@@ -227,11 +227,11 @@ const styles = StyleSheet.create({
   card: {
     width: WIDTH - 50,
     borderRadius: 20,
-    padding: 20,
+    paddingVertical: 20,
     paddingHorizontal: 40,
     height: 280,
-    justifyContent: "space-around",
-    alignItems: "flex-start",
+    justifyContent: "space-evenly",
+    gap: 10,
   },
   taskText: {
     fontSize: 14,
