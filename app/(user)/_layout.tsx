@@ -6,16 +6,11 @@ const _layout = () => {
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
-
-      <Stack.Screen name="about" options={{ headerShown: false }} />
+      <Stack.Screen name="about_app" options={{ headerShown: false }} />
       <Stack.Screen name="activities" options={{ headerShown: false }} />
-      <Stack.Screen name="notification" options={{ headerShown: false }} />
       <Stack.Screen name="profile" options={{ headerShown: false }} />
-      <Stack.Screen name="setting" options={{ headerShown: false }} />
     </Stack>
   );
 };
 
 export default _layout;
-
-const styles = StyleSheet.create({});

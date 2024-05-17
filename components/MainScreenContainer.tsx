@@ -11,6 +11,7 @@ import {
 
 import { WaveHandIcon } from "@/assets/icons";
 import { Colors } from "@/constants/Colors";
+import { router } from "expo-router";
 
 type Props = {
   children: ReactNode;
@@ -56,7 +57,7 @@ const MainScreenContainer = ({ children, name, imageUrl }: Props) => {
             <TouchableOpacity
               activeOpacity={0.7}
               onPress={() => {
-                console.log("Go to profile page!");
+                router.push("/(user)");
               }}
               style={styles.imageContainer}
             >

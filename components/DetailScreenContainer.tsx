@@ -23,9 +23,9 @@ const DetailScreenContainer = ({ title, children, image }: Props) => {
   return (
     <SafeAreaView
       style={{
-        marginTop: 20,
         backgroundColor: colorSchema === "dark" ? "#171913" : "#FEFEFE",
         flex: 1,
+        position: "relative",
       }}
     >
       <View style={{ marginHorizontal: 20 }}>
@@ -55,11 +55,13 @@ const DetailScreenContainer = ({ title, children, image }: Props) => {
             {title ? title : ""}
           </Text>
 
-          {image && (
+          {image ? (
             <Image
               resizeMode="contain"
               source={require("@/assets/images/girl.png")}
             />
+          ) : (
+            <Text></Text>
           )}
         </View>
 

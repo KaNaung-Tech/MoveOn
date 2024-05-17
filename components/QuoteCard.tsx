@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Dimensions,
   StyleSheet,
+  ScrollView,
 } from "react-native";
 import React, { Dispatch, SetStateAction, useMemo } from "react";
 import { EvilIcons, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -100,8 +101,9 @@ const QuoteCard = ({
       </View>
 
       {/* content */}
-      <View
-        style={{
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
           height: readmore ? "80%" : "auto",
           justifyContent: "space-evenly",
         }}
@@ -124,7 +126,7 @@ const QuoteCard = ({
             {item.author}
           </Text>
         )}
-      </View>
+      </ScrollView>
 
       {/* footer */}
       {!readmore ? (
